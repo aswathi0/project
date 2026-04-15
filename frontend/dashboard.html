@@ -1,0 +1,114 @@
+<!-- frontend/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CertiVerify</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-icon">🛡️</span>
+                <span class="brand-text">CertiVerify</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="verify.html">Verify</a>
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="history.html">History</a>
+                <a href="#" id="logoutBtnNav" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>📊 System Dashboard</h1>
+            <p>Welcome back, <span id="username"></span></p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-dashboard">
+            <div class="stat-card-dashboard">
+                <div class="stat-icon">📊</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="totalVerifications">0</div>
+                    <div class="stat-label">Total Scans</div>
+                </div>
+            </div>
+            <div class="stat-card-dashboard">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="fakeRate">0%</div>
+                    <div class="stat-label">Forgery Rate</div>
+                </div>
+            </div>
+            <div class="stat-card-dashboard">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="avgTime">0ms</div>
+                    <div class="stat-label">Avg Latency</div>
+                </div>
+            </div>
+            <div class="stat-card-dashboard">
+                <div class="stat-icon">✅</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="avgConfidence">0%</div>
+                    <div class="stat-label">Avg Confidence</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-row">
+            <div class="chart-card">
+                <h3>Verification Distribution</h3>
+                <canvas id="distributionChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3>Quick Actions</h3>
+                <div class="quick-actions">
+                    <a href="verify.html" class="quick-action-btn primary">🔬 New Certificate Scan</a>
+                    <a href="history.html" class="quick-action-btn secondary">📜 View Scan History</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Verifications -->
+        <div class="recent-verifications">
+            <h3>Recent Scans</h3>
+            <div class="table-container">
+                <table class="data-table" id="recentTable">
+                    <thead>
+                        <tr>
+                            <th>Document</th>
+                            <th>Result</th>
+                            <th>Confidence</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentTableBody">
+                        <tr>
+                            <td colspan="5" class="text-center">No scans yet. Start by verifying a certificate.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

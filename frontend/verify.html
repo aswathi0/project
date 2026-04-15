@@ -1,0 +1,82 @@
+<!-- frontend/verify.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Certificate - CertiVerify</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-icon">🛡️</span>
+                <span class="brand-text">CertiVerify</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="verify.html" class="active">Verify</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="history.html">History</a>
+                <a href="#" id="logoutBtnNav" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>🔬 Certificate Analysis</h1>
+            <p>Upload a certificate image for GAN-powered forgery detection</p>
+        </div>
+
+        <div class="verify-container">
+            <!-- Upload Area -->
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📄</div>
+                <h3>Drop Certificate Image Here</h3>
+                <p>or click to select a file</p>
+                <input type="file" id="fileInput" accept="image/jpeg,image/png,image/jpg" style="display: none;">
+                <button class="btn-browse" onclick="document.getElementById('fileInput').click()">Browse Files</button>
+                <p class="upload-hint">Supported: JPG, PNG | Max: 10MB</p>
+            </div>
+
+            <!-- Preview Area -->
+            <div id="previewArea" class="preview-area" style="display: none;">
+                <div class="preview-header">
+                    <h3>Image Preview</h3>
+                    <button class="btn-remove" onclick="clearPreview()">✕</button>
+                </div>
+                <img id="previewImage" class="preview-image" alt="Preview">
+                <button id="verifyBtn" class="btn-verify">▶ Run GAN Analysis</button>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Running anomaly detection pipeline...</p>
+                <p class="loading-step">Initializing GAN autoencoder...</p>
+            </div>
+
+            <!-- Results Area -->
+            <div id="resultsArea" class="results-area" style="display: none;">
+                <div class="result-header">
+                    <h2>Analysis Complete</h2>
+                    <button class="btn-new-verification" onclick="resetVerification()">+ New Scan</button>
+                </div>
+
+                <div id="resultContent"></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/verify.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!-- frontend/history.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan History - CertiVerify</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-icon">🛡️</span>
+                <span class="brand-text">CertiVerify</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="verify.html">Verify</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="history.html" class="active">History</a>
+                <a href="#" id="logoutBtnNav" class="btn-logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>📜 Scan History</h1>
+            <p>Complete log of all certificate analyses</p>
+        </div>
+
+        <div class="history-filters">
+            <input type="text" id="searchInput" placeholder="Search by filename..." class="search-input">
+            <select id="filterResult" class="filter-select">
+                <option value="all">All Results</option>
+                <option value="real">Authentic Only</option>
+                <option value="fake">Forged Only</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table" id="historyTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Document</th>
+                        <th>Result</th>
+                        <th>Confidence</th>
+                        <th>Texture</th>
+                        <th>GAN Score</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                    <tr>
+                        <td colspan="8" class="text-center">No scans recorded yet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/history.js"></script>
+</body>
+
+</html>

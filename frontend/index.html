@@ -1,0 +1,115 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CertiVerify - AI Certificate Forgery Detection</title>
+    <meta name="description" content="AI-powered certificate forgery detection using GAN anomaly analysis and texture features.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-icon">🛡️</span>
+                <span class="brand-text">CertiVerify</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="active">Home</a>
+                <a href="verify.html">Verify</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="history.html">History</a>
+                <a href="login.html" id="loginBtn" class="btn-login">Login</a>
+                <a href="register.html" id="registerBtn" class="btn-register">Register</a>
+                <a href="#" id="logoutBtn" class="btn-logout" style="display: none;">Logout</a>
+            </div>
+            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        GAN-Powered <span class="highlight">Forgery Detection</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Protect academic integrity with deep learning anomaly detection.
+                        Our GAN autoencoder analyzes certificate textures to detect forged documents with high precision.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="verify.html" class="btn btn-primary">Start Analysis →</a>
+                        <a href="#features" class="btn btn-secondary">How It Works</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="certificate-card">
+                        <div class="certificate-icon">🔬</div>
+                        <div class="certificate-badge">GAN Analysis</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Detection <span>Pipeline</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📤</div>
+                        <h3>Upload</h3>
+                        <p>Upload the certificate image. Supports JPG, PNG up to 10MB. The system preprocesses and normalizes the input.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3>GAN Analysis</h3>
+                        <p>A trained autoencoder-GAN reconstructs the image. Forged certificates produce higher reconstruction error.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Anomaly Score</h3>
+                        <p>Get instant results with anomaly scores, confidence levels, and detailed texture analysis metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">GAN</div>
+                        <div class="stat-label">Detection Engine</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">128px</div>
+                        <div class="stat-label">Feature Resolution</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Real-Time</div>
+                        <div class="stat-label">Analysis Speed</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 CertiVerify - GAN-Based Certificate Forgery Detection System</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
